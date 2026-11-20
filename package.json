@@ -1,0 +1,28 @@
+{
+  "name": "store-rating-management-system",
+  "version": "1.0.0",
+  "description": "Production-Ready Full-Stack Store Rating Management System (Bangalore Edition)",
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "start": "node backend/server.js",
+    "dev": "concurrently npm:backend npm:frontend",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend run dev",
+    "db:init": "node backend/config/initDb.js",
+    "test": "npm --prefix backend test",
+    "test:integration": "npm --prefix backend run test:integration"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "mysql",
+    "full-stack",
+    "store-rating",
+    "production-ready"
+  ],
+  "author": "Prashant Choudhary",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
