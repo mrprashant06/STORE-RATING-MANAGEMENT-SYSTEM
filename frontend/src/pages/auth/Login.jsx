@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import ThemeToggle from '../../components/ThemeToggle';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -42,6 +43,9 @@ const Login = () => {
 
   return (
     <div className="auth-page-container">
+      <div className="auth-top-bar">
+        <ThemeToggle />
+      </div>
       <div className="auth-card login-glass-card">
         <div className="auth-header">
           <div className="auth-logo">⭐</div>

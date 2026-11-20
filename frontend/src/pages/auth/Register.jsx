@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import ThemeToggle from '../../components/ThemeToggle';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -102,6 +103,9 @@ const Register = () => {
 
   return (
     <div className="auth-page-container">
+      <div className="auth-top-bar">
+        <ThemeToggle />
+      </div>
       <div className="auth-card register-card">
         <div className="auth-header">
           <div className="auth-logo">👤</div>

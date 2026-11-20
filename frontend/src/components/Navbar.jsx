@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const { user, logout, getDashboardPath } = useAuth();
@@ -33,6 +34,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
+        <ThemeToggle />
         {user && (
           <div className="user-profile-menu">
             <div className="user-details-summary">
