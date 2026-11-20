@@ -42,7 +42,7 @@ const Login = () => {
 
   return (
     <div className="auth-page-container">
-      <div className="auth-card">
+      <div className="auth-card login-glass-card">
         <div className="auth-header">
           <div className="auth-logo">⭐</div>
           <h2>Sign In to Your Account</h2>
