@@ -45,9 +45,71 @@ graph TD
 ```
 
 The system is architected as an **MVC with Service Layer**:
-* **Frontend:** Built with React 19, React Router DOM, Axios interceptors, Context API, and a custom CSS3 design system.
-* **Backend:** Built on Node.js 22 and Express 5.3 with connection pooling, parameterized SQL queries, and centralized error handling.
-* **Database:** Normalized MySQL 8.0 schema with strict foreign keys, indexes, and unique constraints.
+* **Frontend:** Built with React 19, React Router DOM, Axios interceptors, Context API, Light/Dark Mode theme engine, and frosted glassmorphism design system.
+* **Backend:** Built on Node.js 22 and Express 5.3 with connection pooling, parameterized SQL queries, rate limiting, and centralized error handling.
+* **Database:** Dedicated `database/` directory with normalized MySQL 8.0 schema, standalone seed scripts, strict foreign keys, indexes, and comprehensive ER documentation.
+
+---
+
+## 📂 Project Directory Structure
+
+The project follows a clean, professional separation of concerns organized into **Frontend**, **Backend**, and **Database**:
+
+```text
+Store Rating Management System/
+│
+├── 🎨 frontend/                     # React 19 SPA (Client Application)
+│   ├── public/                      # Static assets (favicons, SVG icons)
+│   ├── src/
+│   │   ├── assets/                  # Images and logos
+│   │   ├── components/              # Reusable UI (Navbar, Sidebar, ThemeToggle, DataTable, Modals, RatingStars)
+│   │   ├── context/                 # Context API (AuthContext, ThemeContext)
+│   │   ├── layouts/                 # MainLayout shell
+│   │   ├── pages/
+│   │   │   ├── admin/               # AdminDashboard, ManageUsers, ManageStores
+│   │   │   ├── auth/                # Login (Glassmorphic), Register, ChangePassword, Unauthorized
+│   │   │   ├── owner/               # OwnerDashboard, OwnerRatings
+│   │   │   └── user/                # UserDashboard, StoreListing
+│   │   ├── services/                # Axios API instance with auth interceptors
+│   │   ├── App.jsx                  # React Router DOM routes & guards
+│   │   ├── index.css                # Global CSS3 design system (Light/Dark mode & Glassmorphic styles)
+│   │   └── main.jsx                 # Application entry point
+│   ├── package.json                 # Frontend dependencies & scripts
+│   └── vite.config.js               # Vite build configuration
+│
+├── ⚙️ backend/                      # Node.js & Express 5.3 RESTful API Server
+│   ├── config/                      # Database connection pool & init scripts
+│   ├── controllers/                 # Request handlers (auth, admin, store, rating, owner)
+│   ├── middleware/                  # JWT authentication, RBAC authorization & error handling
+│   ├── models/                      # MySQL data access layer (parameterized SQL queries)
+│   ├── routes/                      # Express route definitions
+│   ├── validators/                  # express-validator rules for input sanitization
+│   ├── app.js                       # Express application configuration & security middleware
+│   ├── server.js                    # Server startup with graceful shutdown handling
+│   ├── package.json                 # Backend dependencies & scripts
+│   ├── test_apis.js                 # 13-test automated unit test suite
+│   └── test_integration.js          # 17-test end-to-end integration lifecycle test suite
+│
+├── 🗄️ database/                     # Dedicated Database Definition & Documentation
+│   ├── schema.sql                   # MySQL production schema (tables, constraints, indexes)
+│   ├── seed.sql                     # Standalone SQL seed script with Bangalore demo dataset
+│   ├── initDb.js                    # Automated database initialization runner
+│   └── README.md                    # Database ERD, table documentation & Workbench guide
+│
+├── 🐳 Deployment & Automation
+│   ├── Dockerfile                   # Multi-stage production container build
+│   ├── docker-compose.yml           # Orchestration for Node backend + MySQL 8 container
+│   ├── .dockerignore                # Exclusions for Docker images
+│   ├── .env.example                 # Environment variables template
+│   ├── .gitignore                   # Enterprise-grade git ignore
+│   ├── package.json                 # Monorepo root orchestration scripts
+│   ├── start.bat                    # Windows 1-Click Development Launcher
+│   ├── start.ps1                    # PowerShell Development Launcher
+│   ├── build.bat                    # 1-Click Production Build script
+│   └── start-production.bat         # 1-Click Single-Port Production Server
+│
+└── README.md                        # Master project documentation
+```
 
 ---
 
@@ -329,6 +391,31 @@ npm run test:backend
 npm run test:integration
 ```
 * **Coverage:** 17 comprehensive lifecycle assertions verifying store creation, multi-user rating submissions, duplicate rating prevention (409 Conflict), real-time average recalculations, store owner review audits, and password rotation.
+
+---
+
+## 🐙 Pushing to GitHub (Step-by-Step)
+
+To push this repository to your GitHub account:
+
+1. **Create a new repository on GitHub:**
+   * Visit [github.com/new](https://github.com/new).
+   * Set your repository name (e.g. `store-rating-management-system`).
+   * Select **Public** or **Private**.
+   * Leave "Initialize this repository with a README" **unchecked** (this repository already contains complete documentation).
+   * Click **Create repository**.
+
+2. **Run the following commands in your terminal:**
+   ```bash
+   # 1. Add your GitHub repository as remote origin
+   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
+
+   # 2. Rename branch to main (recommended)
+   git branch -M main
+
+   # 3. Push code to your GitHub repository
+   git push -u origin main
+   ```
 
 ---
 

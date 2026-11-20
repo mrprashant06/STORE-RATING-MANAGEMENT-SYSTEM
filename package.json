@@ -8,7 +8,7 @@
     "dev": "concurrently npm:backend npm:frontend",
     "backend": "npm --prefix backend run dev",
     "frontend": "npm --prefix frontend run dev",
-    "db:init": "node backend/config/initDb.js",
+    "db:init": "node database/initDb.js",
     "test": "npm --prefix backend test",
     "test:integration": "npm --prefix backend run test:integration"
   },
