@@ -74,18 +74,6 @@ Store Rating Management System/
 │   ├── initDb.js                    # Automated database initialization runner
 │   └── README.md                    # Database ERD, table documentation & Workbench guide
 │
-├── 🐳 Deployment & Automation
-│   ├── Dockerfile                   # Multi-stage production container build
-│   ├── docker-compose.yml           # Orchestration for Node backend + MySQL 8 container
-│   ├── .dockerignore                # Exclusions for Docker images
-│   ├── .env.example                 # Environment variables template
-│   ├── .gitignore                   # Enterprise-grade git ignore
-│   ├── package.json                 # Monorepo root orchestration scripts
-│   ├── start.bat                    # Windows 1-Click Development Launcher
-│   ├── start.ps1                    # PowerShell Development Launcher
-│   ├── build.bat                    # 1-Click Production Build script
-│   └── start-production.bat         # 1-Click Single-Port Production Server
-│
 └── README.md                        # Master project documentation
 ```
 
